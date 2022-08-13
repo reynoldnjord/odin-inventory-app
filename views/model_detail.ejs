@@ -1,0 +1,24 @@
+<section>
+	<h1>Name: <%= title%></h1>
+	<h2>Category: <%= model.category.name %></h2>
+	<div class="btn-wrapper">
+		<a href="<%= model.url+'/delete' %> ">
+			<button class="remove-btn">Delete Model</button>
+		</a>
+		<a href="<%= model.url+'/update' %> ">
+			<button class="classic-btn">Update Model</button>
+		</a>
+		<a href="/catalog/models">
+			<button class="classic-btn">Return to models</button>
+		</a>
+	</div>
+	<div>
+		<h3>Scale: <%= model.scale %></h3>
+		<h3>Price: <%= model.price %></h3>
+		<% if (model.status === 'Available') { %>
+		<h3>Status: <span class="status-available"><%= model.status %> </span></h3>
+		<% } else {%>
+		<h3>Status: <span class="status-sold"><%= model.status %> </span></h3>
+		<% } %>
+	</div>
+</section>

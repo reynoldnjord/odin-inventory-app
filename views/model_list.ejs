@@ -1,0 +1,30 @@
+<section>
+	<div class="top-side">
+		<h1><%= title %></h1>
+		<a href="/catalog/model/create">
+			<button class="create-btn">+Add new model</button>
+		</a>
+	</div>
+	<div class="models-container">
+		<% for( let elem of model_list) { %>
+		<div class="model-card">
+			<div class="content-container">
+				<a href="<%= elem.url %>">
+					<h3><%= elem.name %></h3>
+					<span><%= elem.category.name %> </span>
+				</a>
+
+				<div class="model-list-details">
+					<div>Scale: <%= elem.scale %></div>
+					<div>Price: <%= elem.price %></div>
+					<% if (elem.status === "Available") { %>
+					<div class="status-available"><%= elem.status %></div>
+					<% } else { %>
+					<div class="status-sold"><%= elem.status %></div>
+					<% } %>
+				</div>
+			</div>
+		</div>
+		<% } %>
+	</div>
+</section>

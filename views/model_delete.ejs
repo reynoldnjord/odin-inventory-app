@@ -1,0 +1,21 @@
+<section>
+	<h1><%= title %> : <%= model.name %></h1>
+	<p class="delete-paragraph">
+		Are you sure you really want to delete this model ?
+	</p>
+	<form action="" method="POST">
+		<div>
+			<input
+				type="hidden"
+				id="id"
+				name="id"
+				required="true"
+				value="<%= model._id %> "
+			/>
+			<button type="submit" class="remove-btn">Delete</button>
+			<a href="<%= model.url %> ">
+				<button type="button" class="classic-btn">Cancel</button>
+			</a>
+		</div>
+	</form>
+</section>

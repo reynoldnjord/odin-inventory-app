@@ -1,0 +1,61 @@
+<section>
+	<h1><%=title %></h1>
+
+	<form action="" method="POST">
+		<div class="form-wrapper">
+			<div class="form-elem-wrapper">
+				<label for="name">Model Name</label>
+				<input
+					required
+					type="text"
+					id="name"
+					name="name"
+					value="<%= typeof model == 'undefined' ? '':model.name %> "
+				/>
+			</div>
+			<div class="form-elem-wrapper">
+				<label for="scale">Model Scale</label>
+				<input
+					required
+					type="text"
+					id="scale"
+					name="scale"
+					value="<%= typeof model == 'undefined' ? '':model.scale %> "
+				/>
+			</div>
+			<div class="form-elem-wrapper">
+				<label for="price">Model Price</label>
+				<input
+					required
+					type="number"
+					id="price"
+					name="price"
+					value="<%= typeof model == 'undefined' ? '':model.price %> "
+					min="5"
+					max="10000"
+				/>
+			</div>
+			<div class="form-elem-wrapper">
+				<label for="category">Model Category</label>
+				<select name="category" id="category" required>
+					<% categories.forEach(category=> {%> <% if(typeof model !=
+					'undefined') {%> <% var selected = category._id.toString() ===
+					model.category._id.toString() ||
+					category._id.toString()==model.category ? 'selected': ''%>
+					<option value="<%= category._id %> " <%="selected" %>
+						><%= category.name %>
+					</option>
+					<% }else{ %>
+					<option value="<%= category._id %> "><%= category.name %></option>
+					<% } %> <% }) %>
+				</select>
+			</div>
+			<div class="btn-wrapper">
+				<button class="classic-btn" type="submit">Submit</button>
+				<a href="/catalog/models"
+					><button class="classic-btn" type="button">Cancel</button></a
+				>
+			</div>
+		</div>
+	</form>
+</section>

@@ -1,0 +1,30 @@
+<section>
+	<h1>Category: <%= category.name %></h1>
+	<a href="<%= category.url+'/delete' %> ">
+		<button class="remove-btn">Delete Category</button>
+	</a>
+	<a href="<%= category.url+'/update' %> ">
+		<button class="classic-btn">Update Category</button>
+	</a>
+	<a href="/catalog/categories">
+		<button class="classic-btn">Return to categories</button>
+	</a>
+	<p><%= category.description %></p>
+	<h2>Models</h2>
+
+	<div>
+		<% for( let model of category_models) { %>
+		<a href="<%= model.url %> ">
+			<div class="detailed-category-container">
+				<p><%= model.name %></p>
+				<span>Price: <%= model.price %> </span>
+				<% if (model.status==="Available") { %>
+				<span class="status-available">Status: <%= model.status %> </span>
+				<% } else { %>
+				<span class="status-sold">Status: <%= model.status %> </span>
+				<% } %>
+			</div>
+		</a>
+		<% } %>
+	</div>
+</section>

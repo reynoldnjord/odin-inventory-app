@@ -1,0 +1,18 @@
+<section>
+	<div class="top-side">
+		<h1><%= title %></h1>
+		<a href="/catalog/category/create">
+			<button class="create-btn">+Create Category</button>
+		</a>
+	</div>
+	<div class="models-container">
+		<% for( let elem of category_list) { %>
+		<div class="model-card">
+			<div class="content-container">
+				<h3><a href="<%= elem.url %> "><%= elem.name %> </a></h3>
+				<p><%= elem.description %></p>
+			</div>
+		</div>
+		<% } %>
+	</div>
+</section>
