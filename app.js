@@ -13,7 +13,7 @@ var indexRouter = require("./routes/index");
 var catalogRouter = require("./routes/catalog");
 
 mongoose.connect(
-	"mongodb+srv://reynold:Aa33355555Bb@cluster0.rfln6l2.mongodb.net/?retryWrites=true&w=majority",
+	process.env.MONGODB_URI,
 	{
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
